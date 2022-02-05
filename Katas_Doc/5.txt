@@ -1,0 +1,48 @@
+Create a branch called greeting and check it out
+$ git switch greeting
+Switched to branch 'greeting'
+
+
+Edit the greeting.txt to contain your favorite greeting
+$ echo "Have a great day"< greeting.txt
+Have a great day
+
+Add greeting.txt files to the staging area
+$ git add greeting.txt
+
+Commit
+$ git commit -m"Change content of greeting file"
+On branch greeting
+nothing to commit, working tree clean
+
+Switch back to the master branch
+$ git switch master
+Switched to branch 'master'
+
+Create a file README.md with information about this repository
+$ git add README.md
+
+Add the README.md file to staging area and make the commit
+What is the output of git log --oneline --graph --all?
+$ git log --oneline --graph --all
+* 2a09a11 (HEAD -> master) Added readme file
+* ba1ae3e Add content to greeting.txt
+* c45206b (origin/greeting, origin/3-way-merge, greeting, 3-way-merge) Add file greeting.txt
+
+Diff the branches
+$ git diff master greeting
+diff --git a/README.md b/README.md
+deleted file mode 100644
+index e69de29..0000000
+diff --git a/greeting.txt b/greeting.txt
+index ce01362..e69de29 100644
+--- a/greeting.txt
++++ b/greeting.txt
+@@ -1 +0,0 @@
+-hello
+
+Merge the greeting branch into master
+$ git merge greeting
+Already up to date.
+
+What is the output of git log --oneline --graph --all now? Observe the extra merge commit created with the message "Merge branch 'greeting'".

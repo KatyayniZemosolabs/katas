@@ -1,0 +1,49 @@
+1.Create a (feature)branch called feature/uppercase (yes, feature/uppercase is a perfectly legal branch name, and a common convention).
+git branch feature/uppercase
+
+2.Switch to this branch
+$ git switch feature/uppercase
+
+3.What is the output of git status?
+$ git status
+On branch feature/uppercase
+nothing to commit, working tree clean
+
+4.Edit the greeting.txt to contain an uppercase greeting
+$ echo "HELLO"<greeting.txt
+HELLO
+
+5.Add greeting.txt files to staging area and commit
+$ git add greeting.txt
+
+6.What is the output of git branch?
+$ git branch
+* feature/uppercase
+  master
+
+7.What is the output of git log --oneline --graph --all
+$ git log --oneline --graph --all
+* ac37794 (HEAD -> feature/uppercase, master) Add content to greeting.txt
+* 7b75515 Add file greeting.txt
+
+Remember: you want to pull in the commit on the feature branch into master. The command 'git merge [branch name]' takes one branch as argument from which it takes commits. The commits are applied to the branch pointed to by HEAD (currently checked out branch).
+
+8. Switch to the master branch
+$ git switch master
+Switched to branch 'master'
+
+9.Use cat to see the contents of the greetings
+$ cat greeting.txt
+hello
+
+10.Diff the branches
+
+11.Merge the branches
+$ git merge feature/uppercase
+Already up to date.
+
+12.Use cat to see the contents of the greetings
+
+13.Delete the uppercase branch
+$ git branch -d feature/uppercase
+Deleted branch feature/uppercase (was ac37794).

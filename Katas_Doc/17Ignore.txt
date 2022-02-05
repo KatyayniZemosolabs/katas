@@ -1,0 +1,67 @@
+Create a file with the name foo.s
+ touch foo.s
+
+What is the output of git status?
+Create a .gitignore file in your working directory containing *.s
+$ echo "*.s" > .gitignore
+
+What is the output of git status?
+Commit the .gitignore file
+$ git commit -m "commit git ignore file"
+[master (root-commit) c48af92] commit git ignore file
+ 1 file changed, 1 insertion(+)
+ create mode 100644 .gitignore
+
+Commit file1.txt
+Add txt files to .gitignore by adding a line in the file containing *.txt
+What does git status tell us?
+Change file1.txt
+
+$ git commit -m "commit file1.txt"
+[master a15239f] commit file1.txt
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file1.txt
+
+What does git status tell us? Why was the file tracked even though the txt extension is in the ignore file?
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+
+Make another text file in the repository, what does git status look like now? Why is it not tracked?
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   .gitignore
+        modified:   file1.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Stage the removal of file1.txt with the command git rm --cached
+What does git status say?
+
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   .gitignore
+        modified:   file1.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Create a new file called file2.txt and add the line !file2.txt to .gitignore. (See note below)
+
+What does git status say? Can you think of a use-case for keeping track of a file although the extension is ignored?
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        deleted:    file1.txt
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   .gitignore

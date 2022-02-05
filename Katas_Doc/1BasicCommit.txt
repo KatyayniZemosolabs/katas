@@ -1,0 +1,79 @@
+1. Use git status to see which branch you are on.
+$ git status
+On branch master
+No commits yet
+nothing to commit (create/copy files and use "git add" to track)
+
+2.What does git log look like?
+3.Create a file
+$ touch file.txt
+
+4.What does the output from git status look like now?
+$ git status
+On branch master
+No commits yet
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        file.txt
+nothing added to commit but untracked files present (use "git add" to track)
+
+5.add the file to the staging area
+$ git add file.txt
+
+6.How does git status look now?
+7.commit the file to the repository
+$ git commit -m"added file.txt"
+[master (root-commit) c67caf1] added file.txt
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 file.txt
+
+8.How does git status look now?
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   file.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+9.Change the content of the file you created earlier
+10.What does git status look like now?
+11.add the file change
+$ git add file.txt
+warning: LF will be replaced by CRLF in file.txt.
+The file will have its original line endings in your working directory
+
+12.What does git status look like now?
+13.Change the file again
+14.Make a commit
+ git commit -m"change 2"
+[master b106d58] change 2
+ 1 file changed, 1 insertion(+)
+
+15.What does the status look like now? The log?
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+$ git log
+commit b106d584b995d920bb403fd5556a6774b930d8e7 (HEAD -> master)
+Author: Katyayni Tripathi <katyayni.tripathi@zemosolabs.com>
+Date:   Thu Feb 3 21:20:36 2022 +0530
+
+    change 2
+
+commit 383089ae99d5d7b8afd9cd2afd58657123cc095c
+Author: Katyayni Tripathi <katyayni.tripathi@zemosolabs.com>
+Date:   Thu Feb 3 21:19:42 2022 +0530
+
+    change 1
+
+commit c67caf122df3edf155334d03a082aa717aebc903
+Author: Katyayni Tripathi <katyayni.tripathi@zemosolabs.com>
+Date:   Thu Feb 3 21:16:50 2022 +0530
+
+    added file.txt
+
+
+16. Add and commit the newest change
